@@ -1,203 +1,117 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中文考试成绩在线验证结果查询</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #000;
-        }
-        
-        .content {
-            background-color: #fff;
-            padding: 0;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .header {
-            text-align: center;
-            padding: 10px 15px;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .main-title {
-            font-size: 16px;
-            font-weight: normal;
-            margin: 5px 0;
-        }
-        
-        .sub-title {
-            font-size: 12px;
-            color: #666;
-            margin: 0;
-        }
-        
-        /* Table styling with borders */
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid #ddd;
-            margin: 0 0 10px 0;
-        }
-        
-        .info-table tr td {
-            padding: 8px 15px;
-            font-size: 14px;
-            border: 1px solid #ddd;
-            vertical-align: middle;
-        }
-        
-        .label-column {
-            text-align: right;
-            color: #333;
-            width: 40%;
-            padding-right: 10px !important;
-            background-color: #f9f9f9;
-        }
-        
-        .photo-cell {
-            width: 40%;
-            text-align: center;
-        }
-        
-        .photo {
-            width: 80px;
-            height: 96px;
-            object-fit: cover;
-        }
-        
-        .section-title {
-            background-color: #f5f5f5;
-            padding: 8px 15px;
-            font-size: 12px;
-            color: #333;
-            margin: 0;
-            font-weight: normal;
-            border: 1px solid #ddd;
-            border-bottom: none;
-        }
-        
-        .scores-table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid #ddd;
-            margin: 0 0 10px 0;
-        }
-        
-        .scores-table th, 
-        .scores-table td {
-            text-align: center;
-            padding: 8px 5px;
-            font-size: 14px;
-            border: 1px solid #ddd;
-        }
-        
-        .scores-table th {
-            font-weight: normal;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        .footer {
-            font-size: 12px;
-            color: #999;
-            text-align: center;
-            padding: 10px;
-        }
-        
-        /* Fixed spacing */
-        .table-container {
-            padding: 10px;
-        }
-        
-        @media (max-width: 480px) {
-            .content {
-                width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chinese Test Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+    }
+
+    h2, h3 {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 140px;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .table-info {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table-info th, .table-info td {
+      text-align: left;
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+    }
+
+    .table-results {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .table-results th, .table-results td {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      text-align: center;
+    }
+
+    img.photo {
+      width: 80px;
+      height: auto;
+      border: 1px solid #ccc;
+    }
+
+    @media screen and (max-width: 600px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      img.photo {
+        margin: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="content">
-        <div class="header">
-            <h1 class="main-title">中文考试成绩在线验证结果查询</h1>
-            <p class="sub-title">汉考国际教育科技（北京）有限公司（CTI）</p>
-        </div>
-        
-        <div class="table-container">
-            <p class="section-title">Information of test taker</p>
-            <table class="info-table">
-                <tr>
-                    <td class="label-column">Name on Certificate</td>
-                    <td>MBALA JUGUEL</td>
-                    <td rowspan="4" class="photo-cell">
-                        <img src="photo.jpg" alt="Candidate Photo" class="photo">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label-column">Chinese Name</td>
-                    <td>恩巴</td>
-                </tr>
-                <tr>
-                    <td class="label-column">Nationality</td>
-                    <td>刚果(金)</td>
-                </tr>
-                <tr>
-                    <td class="label-column">Gender</td>
-                    <td>男</td>
-                </tr>
-            </table>
-        
-            <p class="section-title">考点信息</p>
-            <table class="info-table">
-                <tr>
-                    <td class="label-column">考点名称</td>
-                    <td>武汉理工大学（徐家）</td>
-                </tr>
-                <tr>
-                    <td class="label-column">Ticket No.</td>
-                    <td>H42103789078320015</td>
-                </tr>
-                <tr>
-                    <td class="label-column">证书编号</td>
-                    <td>H42106027364</td>
-                </tr>
-                <tr>
-                    <td class="label-column">Test Type</td>
-                    <td>HSK5级</td>
-                </tr>
-                <tr>
-                    <td class="label-column">Test Time</td>
-                    <td>19-Jun-2021</td>
-                </tr>
-            </table>
-        
-            <p class="section-title">HSK5级(19-Jun-2021)中文水平考试</p>
-            <table class="scores-table">
-                <tr>
-                    <th>听力</th>
-                    <th>阅读</th>
-                    <th>写作</th>
-                    <th>Total Score</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td>75</td>
-                    <td>50</td>
-                    <td>66</td>
-                    <td>191</td>
-                    <td>合格</td>
-                </tr>
-            </table>
-        
-            <p class="footer">最终解释权归汉考国际所有</p>
-        </div>
+  <div class="container">
+    <h2>Chinese Test Online Score Verification</h2>
+    <h3>Chinese Testing International (CTI)</h3>
+
+    <div class="info-grid">
+      <table class="table-info">
+        <tr><th>Name on Certificate</th><td>MBALA JUGUEL</td></tr>
+        <tr><th>Chinese Name</th><td>曹昊</td></tr>
+        <tr><th>Nationality</th><td>Cameroon (喀麦隆)</td></tr>
+        <tr><th>Gender</th><td>Male (男)</td></tr>
+        <tr><th>Test Center</th><td>Wuhan University (武汉大学)</td></tr>
+        <tr><th>Ticket No.</th><td>H42108789703200015</td></tr>
+        <tr><th>Certificate No.</th><td>H42106067364</td></tr>
+        <tr><th>Test Type</th><td>HSK Level 5 (HSK五级)</td></tr>
+        <tr><th>Test Time</th><td>19-Jun-2021</td></tr>
+      </table>
+
+      <div>
+        <img src="https://via.placeholder.com/80x100" alt="Photo" class="photo">
+      </div>
     </div>
+
+    <table class="table-results">
+      <tr>
+        <th>Listening</th>
+        <th>Reading</th>
+        <th>Writing</th>
+        <th>Total Score</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td>75</td>
+        <td>50</td>
+        <td>66</td>
+        <td>191</td>
+        <td>Pass (合格)</td>
+      </tr>
+    </table>
+  </div>
 </body>
 </html>
