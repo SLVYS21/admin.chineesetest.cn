@@ -6,207 +6,198 @@
     <title>中文考试成绩在线验证结果查询</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #fff;
+            color: #000;
         }
-
-        .container {
-            max-width: 1200px;
+        
+        .content {
+            background-color: #fff;
+            padding: 0;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
         }
-
-        h1 {
+        
+        .header {
             text-align: center;
-            color: #5a3500;
-            margin-bottom: 5px;
-            font-size: 1.5rem;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
         }
-
-        .company-name {
-            text-align: center;
-            color: #5a3500;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
+        
+        .main-title {
+            font-size: 16px;
+            font-weight: normal;
+            margin: 5px 0;
         }
-
-        .result-table {
+        
+        .sub-title {
+            font-size: 12px;
+            color: #666;
+            margin: 0;
+        }
+        
+        /* Table styling with borders */
+        .info-table {
             width: 100%;
             border-collapse: collapse;
-            background-color: #fff;
             border: 1px solid #ddd;
+            margin: 0 0 10px 0;
         }
-
-        .result-table td {
+        
+        .info-table tr td {
+            padding: 8px 15px;
+            font-size: 14px;
             border: 1px solid #ddd;
-            padding: 8px;
             vertical-align: middle;
         }
-
+        
         .label-column {
             text-align: right;
-            font-weight: normal;
-            color: #555;
-            width: 25%;
+            color: #333;
+            width: 40%;
+            padding-right: 10px !important;
             background-color: #f9f9f9;
         }
-
+        
         .photo-cell {
+            width: 40%;
             text-align: center;
-            vertical-align: middle;
-            rowspan: 5;
         }
-
+        
         .photo {
-            width: 100px;
-            height: auto;
+            width: 80px;
+            height: 96px;
+            object-fit: cover;
         }
-
+        
+        .section-title {
+            background-color: #f5f5f5;
+            padding: 8px 15px;
+            font-size: 12px;
+            color: #333;
+            margin: 0;
+            font-weight: normal;
+            border: 1px solid #ddd;
+            border-bottom: none;
+        }
+        
         .scores-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
-            background-color: #fff;
             border: 1px solid #ddd;
+            margin: 0 0 10px 0;
         }
-
-        .scores-table th, .scores-table td {
-            border: 1px solid #ddd;
-            padding: 8px;
+        
+        .scores-table th, 
+        .scores-table td {
             text-align: center;
+            padding: 8px 5px;
+            font-size: 14px;
+            border: 1px solid #ddd;
         }
-
+        
         .scores-table th {
-            background-color: #f9f9f9;
             font-weight: normal;
-        }
-
-        .section-header {
+            color: #333;
             background-color: #f9f9f9;
-            padding: 5px;
-            margin-top: 10px;
-            margin-bottom: 0;
-            font-weight: normal;
-            font-size: 0.9rem;
         }
-
+        
         .footer {
+            font-size: 12px;
+            color: #999;
             text-align: center;
-            font-size: 0.8rem;
-            color: #777;
-            margin-top: 10px;
+            padding: 10px;
         }
-
-        /* Removed the .passed class that was making the result green */
-
-        @media (max-width: 768px) {
-            .result-table, .scores-table {
-                font-size: 0.9rem;
-            }
-            
-            .photo {
-                width: 80px;
-            }
-            
-            h1 {
-                font-size: 1.2rem;
-            }
+        
+        /* Fixed spacing */
+        .table-container {
+            padding: 10px;
         }
         
         @media (max-width: 480px) {
-            .result-table, .scores-table {
-                font-size: 0.8rem;
-            }
-            
-            .photo {
-                width: 60px;
-            }
-            
-            .label-column {
-                width: 40%;
-            }
-            
-            h1 {
-                font-size: 1rem;
+            .content {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>中文考试成绩在线验证结果查询</h1>
-        <p class="company-name">汉考国际教育科技（北京）有限公司（CTI）</p>
+    <div class="content">
+        <div class="header">
+            <h1 class="main-title">中文考试成绩在线验证结果查询</h1>
+            <p class="sub-title">汉考国际教育科技（北京）有限公司（CTI）</p>
+        </div>
         
-        <table class="result-table">
-            <tr>
-                <td colspan="3" class="section-header">information de candidat</td>
-            </tr>
-            <tr>
-                <td class="label-column">nom de la carte d'identité</td>
-                <td>Natabou Gauthier Goodluck Talès</td>
-                <td rowspan="5" class="photo-cell">
-                    <img src="photo.jpg" alt="Candidate Photo" class="photo">
-                </td>
-            </tr>
-            <tr>
-                <td class="label-column">nom chinois</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td class="label-column">Nationalité</td>
-                <td>英国</td>
-            </tr>
-            <tr>
-                <td class="label-column">Sexe</td>
-                <td>男</td>
-            </tr>
-            <tr>
-                <td colspan="2" class="section-header">考点信息</td>
-            </tr>
-            <tr>
-                <td class="label-column">考点名称</td>
-                <td colspan="2">英国东密德兰汉语考点</td>
-            </tr>
-            <tr>
-                <td class="label-column">Numéro de convocation</td>
-                <td colspan="2">HR2152613040000004</td>
-            </tr>
-            <tr>
-                <td class="label-column">证书编号</td>
-                <td colspan="2">HW6210700226I</td>
-            </tr>
-            <tr>
-                <td class="label-column">Type d'examen</td>
-                <td colspan="2">HSK六级</td>
-            </tr>
-            <tr>
-                <td class="label-column">heure d'examen</td>
-                <td colspan="2">24 juil. 2021</td>
-            </tr>
-        </table>
+        <div class="table-container">
+            <p class="section-title">Information of test taker</p>
+            <table class="info-table">
+                <tr>
+                    <td class="label-column">Name on Certificate</td>
+                    <td>MBALA JUGUEL</td>
+                    <td rowspan="4" class="photo-cell">
+                        <img src="photo.jpg" alt="Candidate Photo" class="photo">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-column">Chinese Name</td>
+                    <td>恩巴</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Nationality</td>
+                    <td>刚果(金)</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Gender</td>
+                    <td>男</td>
+                </tr>
+            </table>
         
-        <p class="section-header">HSK六级(24 juil. 2021)中文水平考试</p>
+            <p class="section-title">考点信息</p>
+            <table class="info-table">
+                <tr>
+                    <td class="label-column">考点名称</td>
+                    <td>武汉理工大学（徐家）</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Ticket No.</td>
+                    <td>H42103789078320015</td>
+                </tr>
+                <tr>
+                    <td class="label-column">证书编号</td>
+                    <td>H42106027364</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Test Type</td>
+                    <td>HSK5级</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Test Time</td>
+                    <td>19-Jun-2021</td>
+                </tr>
+            </table>
         
-        <table class="scores-table">
-            <tr>
-                <th>听力</th>
-                <th>阅读</th>
-                <th>写作</th>
-                <th>note finale</th>
-                <th>Situation passable</th>
-            </tr>
-            <tr>
-                <td>70</td>
-                <td>64</td>
-                <td>70</td>
-                <td>204</td>
-                <td>合格</td>
-            </tr>
-        </table>
+            <p class="section-title">HSK5级(19-Jun-2021)中文水平考试</p>
+            <table class="scores-table">
+                <tr>
+                    <th>听力</th>
+                    <th>阅读</th>
+                    <th>写作</th>
+                    <th>Total Score</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>75</td>
+                    <td>50</td>
+                    <td>66</td>
+                    <td>191</td>
+                    <td>合格</td>
+                </tr>
+            </table>
         
-        <p class="footer">最终解释权归汉考国际所有</p>
+            <p class="footer">最终解释权归汉考国际所有</p>
+        </div>
     </div>
 </body>
 </html>
